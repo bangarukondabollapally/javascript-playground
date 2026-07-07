@@ -48,33 +48,3 @@ switch (n) {
     default:
         console.log("Invalid day");
 }
-
-// ------------------ Condition Ordering in if-else-if ------------------
-
-let num = 12;
-
-// Version A - checked from high to low
-if (num >= 85) {
-  console.log("Excellent");
-} else if (num >= 60) {
-  console.log("Good");
-} else if (num >= 40) {
-  console.log("Average");
-} else {
-  console.log("Fail");
-}
-
-// Version B - same ranges, conditions written in a different order
-if (num < 25) {
-  console.log("Fail");
-} else if (num >= 40) {
-  console.log("Average");
-} else if (num < 60) {
-  console.log("Good");
-} else {
-  console.log("Excellent");
-}
-
-// Once a branch's condition is true, the rest of the chain is skipped.
-// The order you write conditions in changes which branch runs —
-// always order if-else-if chains deliberately, not arbitrarily.

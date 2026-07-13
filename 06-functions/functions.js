@@ -170,3 +170,123 @@ abcd();
 (function () {
     console.log("Runs immediately, private scope");
 })();
+
+
+
+// ------------------ Challenge 1 - BMI Calculator ------------------
+
+let bmi = (w,h)=>{ //? w = weight, h = height
+    return w/(h*h);
+}
+console.log(bmi(65,1.65).toFixed(3));
+
+
+// ------------------ Challenge 2 - greet function with default parameter ------------------
+
+function greetHello(name="User"){
+    console.log(`Hello ${name}`);
+}
+greetHello(); //? Hello User
+greetHello("Harsh"); //? Hello Harsh
+
+
+// ------------------ Challenge 3 - Sum all numbers passed to a function using the rest parameter ------------------
+
+function sumRest(...nums){
+    let sum = 0;
+    for(let i=0;i<nums.length;i++){
+        sum+=nums[i];
+    }
+    return sum;
+}
+console.log(sumRest(10,20,30,40,50));
+
+
+// ------------------ Challenge 4 - Create a closure-based counter function ------------------
+
+function Counter(){
+    let count = 0;
+    return function(){
+        count++;
+        console.log(count);
+    }
+}
+
+let closureCounter = Counter();
+closureCounter(); //? 1
+closureCounter(); //? 2
+
+
+// ------------------ Challenge 5 - Write a function that returns another function ------------------
+
+function outerFunc(a){
+    return function innerFunc(b){
+        return a*b;
+    }
+}
+
+let multiplyFunc = outerFunc(5);
+console.log(multiplyFunc(10)); //? 50
+
+
+// ------------------ Challenge 6 - Use a function to log all even numbers in an array ------------------
+
+function logEven(...nums){
+    for(let i=1;i<nums.length;i++){
+        if(i%2===0){
+            console.log(`${i} is even`);
+        }
+    }
+}
+
+logEven(1,2,3,4,5,6,7,8,9,10);
+
+
+// ------------------ Challenge 7 - Create a pure function that adds tax to a price ------------------
+
+function addTax(price){
+    return price+(price*0.18); // 18% tax assuming
+}
+
+console.log(addTax(100)); //118
+console.log(addTax(200)); //236
+
+
+// ------------------ Challenge 8 ------------------
+
+// greet(); //! ReferenceError since the function expression greet is not hoisted
+
+const greet = function () {
+  console.log("Hi");
+};
+
+//? Function expression are not hoisted but function declaration does it so it doesn't throw an error
+
+
+
+// ------------------ Challenge 9 - Use an IIFE to show a welcome message ------------------
+(function(){
+    console.log("Hello from IIFE");
+})();
+
+
+// ------------------ Challenge 10 - Discount calculator with HOF ------------------
+
+function discountCalc(price, discount){
+    console.log(discount(price));
+}
+
+let discount = function(price){
+    return price - (price * 0.18);
+}
+
+discountCalc(100,discount);
+
+
+// ------------------ Challenge 11 - Make a toUpperCase transformer using a HOF ------------------
+
+function upperCase(text, upper){
+    console.log(upper(text));
+}
+
+upperCase("transformer",(text)=>text.toUpperCase());

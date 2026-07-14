@@ -145,3 +145,97 @@ Spread.push(100);
 console.log(array10);    //? [1,2,3,4,5,6,99] — reference copy affected the original too
 console.log(newarray10); //? [1,2,3,4,5,6,99]
 console.log(Spread);     //? [1,2,3,4,5,6,100] — independent, didn't affect array10
+
+
+
+
+// ------------------ Challenge 1 - Array of student names ------------------ 
+
+let students = ["ankit", "akash", "mohit", "rahul", "sumit"];
+
+students.forEach((stu)=>{
+    console.log(stu);
+})
+
+
+// ------------------ Challenge 2 - Print only even numbers ------------------ 
+let nums = [1,2,3,4,5,6,7,8,9,10];
+
+nums.forEach((val)=>{
+    if(val%2==0) console.log(val);
+})
+
+
+// ------------------ Challenge 3 - Map array of prices to include 18% gst ------------------ 
+
+let prices = [10000,20000,30000,40000,50000];
+
+let newPrices = prices.map((val)=>{
+    return val+(val*18/100);
+})
+console.log(newPrices);
+
+
+// ------------------ Challenge 4 - Reduce array of salaries ------------------ 
+
+let salaries = [10000,20000,30000,40000,50000];
+
+let newSalaries = salaries.reduce((acc,val)=>{
+    return acc+val;
+},0)
+
+console.log(newSalaries);
+
+
+// ------------------ Challenge 5 - first student with grade A ------------------ 
+let grades = ["b","c","d","f","a","c","f"];
+
+let newGrades = grades.find((val)=>{
+    if(val=="a") return true;
+    return false;
+})
+
+console.log(newGrades); //? a
+
+
+// ------------------ Challenge 6 - Write a function to reverse an array ------------------ 
+function reverseArray(arr){
+    return arr.reverse(); //! changes the original array
+}
+
+let arrayRev = [1,2,3,4,5];
+console.log(reverseArray(arrayRev));
+
+
+// ------------------ Challenge 7 - Sort an array of ages in ascending order ------------------ 
+
+let ages = [10,2,3];
+ages.sort();
+console.log(ages); //? [10, 2, 3] - default sort() compares values as strings 
+
+ages.sort((a,b)=>a-b);
+console.log(ages); //? [2, 3, 10] - correct numeric sort
+
+
+
+// ------------------ Challenge 8 - Destructure the first two elements of an array ------------------ 
+
+let elements = [1,2,3,4,5]
+let [e1,e2] = elements;
+console.log(e1, e2);
+
+
+// ------------------ Challenge 9 - Use .some() to check if any student failed ------------------ 
+
+let grades1 = ["a","b","c","f","a"];
+let newGrade = grades1.some((val)=>val=="f");
+console.log(newGrade);
+
+
+// ------------------ Challenge 10 - Use spread operator to copy an array and add a new item ------------------ 
+
+let original = [1,2,3,4,5,6];
+let spread = [...original];
+spread.push(99);
+console.log(spread);
+console.log(original);

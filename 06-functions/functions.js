@@ -266,21 +266,20 @@ const greet = function () {
 
 // ------------------ Challenge 9 - Use an IIFE to show a welcome message ------------------
 (function(){
-    console.log("Hello from IIFE");
+    console.log("Welcome to functions chapter");
 })();
 
 
 // ------------------ Challenge 10 - Discount calculator with HOF ------------------
 
-function discountCalc(price, discount){
-    console.log(discount(price));
+function discountCalc(price,discountPerc, discount){
+    console.log(`Final Price after discount ${discount(price,discountPerc)}`);
+}
+let discount = function(price,discountPerc){;
+    return price - (price * (discountPerc/100));
 }
 
-let discount = function(price){
-    return price - (price * 0.18);
-}
-
-discountCalc(100,discount);
+discountCalc(100,5,discount);
 
 
 // ------------------ Challenge 11 - Make a toUpperCase transformer using a HOF ------------------
@@ -289,4 +288,8 @@ function upperCase(text, upper){
     console.log(upper(text));
 }
 
-upperCase("transformer",(text)=>text.toUpperCase());
+let upperText = function(text){
+    return text.toUpperCase();
+}
+
+upperCase("transformer",upperText);

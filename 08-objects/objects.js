@@ -121,3 +121,87 @@ let dev = {
     [role]: "frontend Engineer" //? the key becomes the VALUE stored in role, not the word "role" itself
 }
 console.log(dev); //? { name: 'John', Role: 'frontend Engineer' }
+
+
+
+// ------------------ Challenge 1 - Create an object for a book (title, author, price) ------------------
+
+let book = {
+    title: "The Great Gatsby",
+    author: "John Doe",
+    price: 100
+}
+console.log(book);
+
+
+// ------------------ Challenge 2 - Access properties using both dot and bracket notation ------------------
+
+console.log(book.title);  //? The Great Gatsby - dot notation
+console.log(book["author"]); //? John Doe - bracket notation
+
+
+// ------------------ Challenge 3 - Write a nested object (a user with an address and a location) ------------------
+
+let user2 = {
+    name: "John",
+    address: {
+        city: "New York",
+        zip: "12345",
+        geo: {
+            lat: 40.7128,
+            lng: -74.0060
+        },
+    },
+};
+console.log(user2);
+
+
+// ------------------ Challenge 4 - Destructure name and age from a student object ------------------
+
+let student = {
+    name: "John",
+    age: 28,
+    city: "New York"
+}
+let { name, age } = student;
+console.log(name, age);
+
+
+// ------------------ Challenge 5 - Loop through the keys and values of an object ------------------
+
+for (let key in student) {
+    console.log(`${key} : ${student[key]}`);
+}
+
+
+// ------------------ Challenge 6 - Convert an object to an array using Object.entries() ------------------
+
+console.log(Object.entries(student)); //? [ [ 'name', 'John' ], [ 'age', 28 ], [ 'city', 'New York' ] ]
+
+
+// ------------------ Challenge 7 - Copy an object using the spread operator ------------------
+
+let student2 = { ...student };
+console.log(student2);
+
+
+// ------------------ Challenge 8 - Create a deep copy of an object with a nested structure ------------------
+
+let user3 = JSON.parse(JSON.stringify(user2));
+console.log(user3);
+
+
+// ------------------ Challenge 9 - Use optional chaining to safely access a deeply nested value ------------------
+
+console.log(user?.profile?.city);
+console.log(user?.address?.geo?.lat);
+
+
+// ------------------ Challenge 10 - Use a variable as a key using computed properties ------------------
+
+let empType = "Role";
+let emp = {
+    name: "John",
+    [empType]: "frontend Engineer"
+}
+console.log(emp);
